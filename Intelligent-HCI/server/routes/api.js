@@ -22,8 +22,8 @@ router.post('/stt', upload.single('audio'), async (req, res) => {
 // TTS: 텍스트 → 음성
 router.post('/tts', async (req, res) => {
   try {
-    const { text } = req.body;
-    const filePath = await synthesizeSpeech(text);
+    const { text, voiceGender, voiceSpeed } = req.body;
+    const filePath = await synthesizeSpeech(text, voiceGender, voiceSpeed);
     const fileName = filePath.split('/').pop();
     res.json({ url: `/tts_output/${fileName}` });
   } catch (error) {

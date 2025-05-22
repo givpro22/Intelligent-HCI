@@ -4,11 +4,11 @@ const util = require('util');
 
 const client = new textToSpeech.TextToSpeechClient();
 
-const synthesizeSpeech = async (text) => {
+const synthesizeSpeech = async (text, gender = 'NEUTRAL', speed = 1.0) => {
   const request = {
     input: { text },
-    voice: { languageCode: 'ko-KR', ssmlGender: 'NEUTRAL' },
-    audioConfig: { audioEncoding: 'MP3' },
+    voice: { languageCode: 'ko-KR', ssmlGender: gender },
+    audioConfig: { audioEncoding: 'MP3', speakingRate: speed },
   };
 
   const [response] = await client.synthesizeSpeech(request);
