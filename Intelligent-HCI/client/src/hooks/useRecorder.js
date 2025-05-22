@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { sendAudioToSTT } from '../api/sttApi';
 
 export const useRecorder = (onResult) => {
   const [recording, setRecording] = useState(false);
@@ -14,17 +15,13 @@ export const useRecorder = (onResult) => {
 
     mediaRecorder.onstop = async () => {
       const blob = new Blob(audioChunks, { type: 'audio/wav' });
-      const formData = new FormData();
-      formData.append('audio', blob, 'input.wav');
-
-      const response = await fetch('http://localhost:5001/api/stt', {
-        method: 'POST',
-        body: formData,
-      });
-
-      const data = await response.json();
-      if (data.text) {
-        onResult(data.text);
+      try {
+        const text = await sendAudioToSTT(blob);
+        if (text) {
+          onResult(text);
+        }
+      } catch (error) {
+        console.error('STT API error:', error);
       }
     };
 

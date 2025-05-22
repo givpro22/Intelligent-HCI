@@ -2,6 +2,7 @@ const express = require('express');
 const multer = require('multer');
 const fs = require('fs');
 const recognizeSpeech = require('../controllers/sttController');
+const getChatResponse = require('../controllers/chatController');
 
 const router = express.Router();
 const upload = multer({ dest: 'uploads/' });
@@ -23,8 +24,14 @@ router.post('/tts', (req, res) => {
 });
 
 // GPT: 텍스트 → 응답 생성
-router.post('/chat', (req, res) => {
-  res.send('Chat endpoint (to be implemented)');
+router.post('/chat', async (req, res) => {
+  try {
+    const { message } = req.body;
+    const reply = await getChatResponse(message);
+    res.json({ text: reply });
+  } catch (error) {
+    res.status(500).json({ error: 'GPT failed', detail: error.toString() });
+  }
 });
 
 module.exports = router;
