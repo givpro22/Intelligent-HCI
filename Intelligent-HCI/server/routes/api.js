@@ -3,6 +3,7 @@ const multer = require('multer');
 const fs = require('fs');
 const recognizeSpeech = require('../controllers/sttController');
 const getChatResponse = require('../controllers/chatController');
+const synthesizeSpeech = require('../controllers/ttsController');
 
 const router = express.Router();
 const upload = multer({ dest: 'uploads/' });
@@ -19,8 +20,15 @@ router.post('/stt', upload.single('audio'), async (req, res) => {
 });
 
 // TTS: 텍스트 → 음성
-router.post('/tts', (req, res) => {
-  res.send('TTS endpoint (to be implemented)');
+router.post('/tts', async (req, res) => {
+  try {
+    const { text } = req.body;
+    const filePath = await synthesizeSpeech(text);
+    const fileName = filePath.split('/').pop();
+    res.json({ url: `/tts_output/${fileName}` });
+  } catch (error) {
+    res.status(500).json({ error: 'TTS failed', detail: error.toString() });
+  }
 });
 
 // GPT: 텍스트 → 응답 생성

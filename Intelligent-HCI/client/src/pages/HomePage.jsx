@@ -3,6 +3,7 @@ import ChatMessages from '../components/ChatMessages';
 import ChatInput from '../components/ChatInput';
 import VoiceInput from '../components/VoiceInput';
 import { sendChatMessage } from '../api/chatApi';
+import { requestTTS } from '../api/ttsAPI';
 
 function HomePage() {
   const [messages, setMessages] = useState([]);
@@ -15,10 +16,15 @@ function HomePage() {
       const responseText = await sendChatMessage(text);
       const botMsg = { sender: 'bot', text: responseText };
       setMessages((prev) => [...prev, botMsg]);
+
+      // TTS playback
+      const audioUrl = await requestTTS(responseText);
+      const audio = new Audio(audioUrl);
+      audio.play();
     } catch (error) {
       const botMsg = { sender: 'bot', text: '❌ 오류가 발생했습니다.' };
       setMessages((prev) => [...prev, botMsg]);
-      console.error('Chat API error:', error);
+      console.error('Chat API or TTS error:', error);
     }
   };
 

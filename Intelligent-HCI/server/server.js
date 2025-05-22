@@ -10,6 +10,7 @@ const PORT = process.env.PORT || 5001;
 
 app.use(cors());
 app.use(express.json());
+app.use('/tts_output', express.static('tts_output'));
 app.use('/api', apiRoutes);
 
 app.listen(PORT, () => {
