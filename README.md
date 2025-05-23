@@ -15,9 +15,14 @@
 
 ### 💻 화면 UI 예시
 
-<img src="./docs/imagecopy2.png" alt="홈 화면 예시 1" width="600"/>
-<img src="./docs/imagecopy3.png" alt="홈 화면 예시 2" width="600"/>
-<img src="./docs/imagecopy4.png" alt="홈 화면 예시 3" width="600"/>
+#### 시작 화면
+<img src="./docs/imagecopy2.png" alt="시작 화면" width="600"/>
+
+#### 홈 화면
+<img src="./docs/imagecopy3.png" alt="홈 화면" width="600"/>
+
+#### 채팅 실행 화면
+<img src="./docs/imagecopy4.png" alt="채팅 실행 화면" width="600"/>
 
 ---
 
