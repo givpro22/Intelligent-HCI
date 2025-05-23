@@ -1,9 +1,6 @@
-# Intelligent-HCI
-2025-1학기 지능HCI 과제 대화형 Chatbot 만들기
-
 # 🧠 Intelligent-HCI
 
-2025-1학기 지능HCI 과제: 대화형 Chatbot 시스템 구현
+2025-1학기 지능HCI(김승원교수님) 과제: 대화형 Chatbot 시스템 구현
 
 ## 프로젝트 개요
 
