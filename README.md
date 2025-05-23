@@ -14,13 +14,13 @@
 
 ## 🖼️ 시스템 구성도
 
-![시스템 흐름도](./docs/image.png)
+<img src="./docs/image.png" alt="시스템 흐름도" width="800"/>
 
 ### 💻 화면 UI 예시
 
-![홈 화면 예시 1](./docs/imagecopy2.png)
-![홈 화면 예시 2](./docs/imagecopy3.png)
-![홈 화면 예시 3](./docs/imagecopy4.png)
+<img src="./docs/imagecopy2.png" alt="홈 화면 예시 1" width="600"/>
+<img src="./docs/imagecopy3.png" alt="홈 화면 예시 2" width="600"/>
+<img src="./docs/imagecopy4.png" alt="홈 화면 예시 3" width="600"/>
 
 ---
 
