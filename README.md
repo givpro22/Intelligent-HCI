@@ -18,9 +18,9 @@
 
 ### 💻 화면 UI 예시
 
-![홈 화면 예시](./docs/image copy 2.png)
-![홈 화면 예시](./docs/image copy 3.png)
-![홈 화면 예시](./docs/image copy 4.png)
+![홈 화면 예시 1](./docs/imagecopy2.png)
+![홈 화면 예시 2](./docs/imagecopy3.png)
+![홈 화면 예시 3](./docs/imagecopy4.png)
 
 ---
 
